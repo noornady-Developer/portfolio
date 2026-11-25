@@ -1,0 +1,1907 @@
+/* ==========================================================================
+   NOOR NADY ★ LAB — Pop-Sticker Creative Lab Theme
+   Neo-Brutalist Warm Paper Canvas + Tactile Comic Borders + High-Contrast Clarity
+   ========================================================================== */
+
+:root {
+    --bg-paper: #FFFDF5;
+    --bg-dot: #CBD5E1;
+    --ink: #111827;
+    --ink-soft: #374151;
+    --ink-muted: #4B5563;
+    --white: #FFFFFF;
+
+    /* Sticker Pastels & Electric Pops */
+    --yellow: #FDE047;
+    --cyan: #67E8F9;
+    --mint: #6EE7B7;
+    --coral: #FB7185;
+    --violet: #DDD6FE;
+    --sky: #BAE6FD;
+    --butter: #FDE68A;
+    --rose: #FECDD3;
+    --peach: #FED7AA;
+    --emerald: #25D366;
+
+    --border-w: 2.5px;
+    --shadow-sm: 3px 3px 0px var(--ink);
+    --shadow-md: 5px 5px 0px var(--ink);
+    --shadow-lg: 7px 7px 0px var(--ink);
+    --radius-sm: 12px;
+    --radius-md: 18px;
+    --radius-lg: 24px;
+    --spring: cubic-bezier(0.22, 1.25, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    background-color: var(--bg-paper);
+    background-image: radial-gradient(var(--bg-dot) 1.35px, transparent 1.35px);
+    background-size: 20px 20px;
+    color: var(--ink);
+    font-family: 'Plus Jakarta Sans', 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.55;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+}
+
+/* ==========================================================================
+   0. Lively Pop-Sticker Paper Planes Convoy
+   ========================================================================== */
+.paper-planes-sky {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.paper-plane {
+    position: absolute;
+    left: -140px;
+    will-change: transform, opacity;
+    pointer-events: none;
+}
+
+.paper-plane svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(3px 3px 0px rgba(17, 24, 39, 0.88));
+}
+
+.plane-trail {
+    opacity: 0.52;
+}
+
+/* Lane A: Diagonal Sweeping Convoy (3 planes flying sequentially behind cards) */
+.plane-lane-a {
+    width: 78px;
+    top: 72vh;
+    z-index: 1;
+    animation: flyConvoyA 15s linear infinite;
+}
+
+.plane-a1 {
+    animation-delay: -1s;
+}
+
+.plane-a2 {
+    animation-delay: -6s;
+    width: 68px;
+}
+
+.plane-a3 {
+    animation-delay: -11s;
+    width: 74px;
+}
+
+/* Lane B: Upper Sky Wave Convoy (2 planes flying after each other) */
+.plane-lane-b {
+    width: 62px;
+    top: 15vh;
+    z-index: 12;
+    animation: flyConvoyB 17s linear infinite;
+}
+
+.plane-b1 {
+    animation-delay: -3s;
+}
+
+.plane-b2 {
+    animation-delay: -11.5s;
+    width: 56px;
+}
+
+/* Lane C: Lower Sky Glider */
+.plane-lane-c {
+    width: 64px;
+    top: 86vh;
+    z-index: 12;
+    animation: flyConvoyC 14s linear infinite;
+    animation-delay: -7s;
+}
+
+@keyframes flyConvoyA {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(-14deg) scale(0.95);
+        opacity: 0;
+    }
+
+    7% {
+        opacity: 0.95;
+    }
+
+    30% {
+        transform: translate3d(34vw, -18vh, 0) rotate(-18deg) scale(1);
+    }
+
+    55% {
+        transform: translate3d(62vw, -28vh, 0) rotate(-8deg) scale(1.03);
+    }
+
+    80% {
+        transform: translate3d(92vw, -44vh, 0) rotate(-16deg) scale(0.96);
+        opacity: 0.95;
+    }
+
+    100% {
+        transform: translate3d(calc(100vw + 180px), -56vh, 0) rotate(-20deg) scale(0.9);
+        opacity: 0;
+    }
+}
+
+@keyframes flyConvoyB {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(4deg) scale(0.92);
+        opacity: 0;
+    }
+
+    8% {
+        opacity: 0.9;
+    }
+
+    28% {
+        transform: translate3d(30vw, -4vh, 0) rotate(-6deg) scale(1);
+    }
+
+    56% {
+        transform: translate3d(64vw, 3vh, 0) rotate(8deg) scale(0.96);
+    }
+
+    82% {
+        transform: translate3d(94vw, -6vh, 0) rotate(-10deg) scale(1);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translate3d(calc(100vw + 180px), -12vh, 0) rotate(-12deg) scale(0.9);
+        opacity: 0;
+    }
+}
+
+@keyframes flyConvoyC {
+    0% {
+        transform: translate3d(0, 0, 0) rotate(-8deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    45% {
+        transform: translate3d(52vw, -8vh, 0) rotate(-2deg);
+    }
+
+    85% {
+        transform: translate3d(92vw, -16vh, 0) rotate(-12deg);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translate3d(calc(100vw + 180px), -22vh, 0) rotate(-14deg);
+        opacity: 0;
+    }
+}
+
+html[lang="ar"] body {
+    font-family: 'Tajawal', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+a,
+textarea {
+    font-family: inherit;
+}
+
+/* Shared Neo-Brutalist Tactile Utility */
+.pop-box {
+    border: var(--border-w) solid var(--ink);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.2s var(--spring), box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+button.pop-box:hover,
+a.pop-box:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-lg);
+}
+
+button.pop-box:active,
+a.pop-box:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--ink);
+}
+
+button:focus-visible,
+a:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #2563EB;
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   1. Snappy Pop-Sticker Intro Curtain
+   ========================================================================== */
+.pop-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background-color: var(--yellow);
+    background-image: radial-gradient(rgba(17, 24, 39, 0.14) 1.5px, transparent 1.5px);
+    background-size: 22px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    transition: transform 0.55s cubic-bezier(0.7, 0, 0.2, 1), opacity 0.45s ease, visibility 0.55s ease;
+}
+
+.pop-intro.intro-done {
+    transform: translateY(-105%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.pop-intro-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
+}
+
+.intro-mascot-badge {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    border: 3px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--ink);
+    background: #FFFDF5;
+    overflow: hidden;
+    animation: popLogoBounce 0.45s var(--spring) both;
+}
+
+.intro-mascot-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pop-intro-stickers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.intro-chip {
+    padding: 6px 14px;
+    border: var(--border-w) solid var(--ink);
+    border-radius: 999px;
+    box-shadow: var(--shadow-sm);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    animation: popStickerIn 0.45s var(--spring) both;
+}
+
+.intro-chip-cyan {
+    background: var(--cyan);
+    transform: rotate(-3deg);
+}
+
+.intro-chip-mint {
+    background: var(--mint);
+    animation-delay: 0.08s;
+}
+
+.intro-chip-coral {
+    background: var(--coral);
+    color: var(--white);
+    transform: rotate(3deg);
+    animation-delay: 0.16s;
+}
+
+.pop-intro-logo {
+    background: var(--white);
+    border: 3px solid var(--ink);
+    box-shadow: 8px 8px 0px var(--ink);
+    border-radius: var(--radius-md);
+    padding: 16px 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(26px, 5vw, 48px);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    animation: popLogoBounce 0.55s var(--spring) both;
+}
+
+.intro-star {
+    color: #F59E0B;
+    display: inline-block;
+    animation: spinStar 2.5s linear infinite;
+}
+
+.intro-skip {
+    background: var(--white);
+    border: var(--border-w) solid var(--ink);
+    box-shadow: var(--shadow-sm);
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--ink);
+    cursor: pointer;
+}
+
+@keyframes popStickerIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.7) translateY(14px);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes popLogoBounce {
+    0% {
+        opacity: 0;
+        transform: scale(0.82) rotate(-2deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+@keyframes spinStar {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ==========================================================================
+   2. Header, Sticky Navbar & Hero Sticker Stage
+   ========================================================================== */
+.lab-header {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 20px 18px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.lab-navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.brand-sticker {
+    background: var(--yellow);
+    color: var(--ink);
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 14px;
+    font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.brand-dot {
+    font-size: 17px;
+    line-height: 1;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    border: var(--border-w) solid var(--ink);
+    box-shadow: var(--shadow-sm);
+    border-radius: 999px;
+    padding: 5px 8px;
+}
+
+.nav-pill {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-pill:hover {
+    background: var(--yellow);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.toy-btn,
+.lang-btn,
+.highfive-btn {
+    border-radius: 14px;
+    padding: 9px 14px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--ink);
+}
+
+.toy-btn {
+    background: var(--white);
+}
+
+.toy-btn.is-muted {
+    background: #E5E7EB;
+    color: #4B5563;
+}
+
+.lang-btn {
+    background: var(--cyan);
+}
+
+.highfive-btn {
+    background: var(--coral);
+    color: var(--ink);
+}
+
+.highfive-btn.is-bumping {
+    animation: buttonBump 0.35s var(--spring);
+}
+
+@keyframes buttonBump {
+    0% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.12) rotate(-2deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+/* Hero Main Sticker Card */
+.hero-stage {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.hero-main-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: clamp(22px, 3.6vw, 38px);
+    box-shadow: var(--shadow-lg);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.78fr);
+    gap: clamp(22px, 3.5vw, 38px);
+    align-items: center;
+}
+
+.hero-eyebrow-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.hero-sticker-tag {
+    display: inline-block;
+    background: var(--cyan);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    transform: rotate(-1.2deg);
+}
+
+.hero-status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #ECFDF5;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--ink);
+}
+
+.live-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #10B981;
+    border: 1.5px solid var(--ink);
+    animation: pulseLive 1.8s infinite;
+    flex-shrink: 0;
+}
+
+@keyframes pulseLive {
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.65);
+    }
+
+    70% {
+        box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+.hero-headline {
+    font-size: clamp(28px, 4.2vw, 46px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.6px;
+    color: var(--ink);
+    margin-bottom: 12px;
+}
+
+.hero-sub {
+    font-size: clamp(14.5px, 1.55vw, 16.5px);
+    color: var(--ink-soft);
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+/* Stat Sticker Row */
+.hero-stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.stat-sticker {
+    border-radius: 16px;
+    padding: 12px 18px;
+    min-width: 112px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.stat-sticker:hover {
+    transform: translateY(-3px) rotate(-1.5deg);
+}
+
+.stat-mint {
+    background: var(--mint);
+}
+
+.stat-yellow {
+    background: var(--yellow);
+}
+
+.stat-sky {
+    background: var(--sky);
+}
+
+.stat-num {
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--ink);
+}
+
+.stat-lbl {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-top: 2px;
+}
+
+/* Hero CTA Row */
+.hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.cta-primary,
+.cta-secondary,
+.cta-toy {
+    text-decoration: none;
+    border-radius: 14px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.cta-primary {
+    background: var(--ink);
+    color: var(--white);
+    box-shadow: 4px 4px 0px #2563EB;
+}
+
+.cta-primary:hover {
+    box-shadow: 6px 6px 0px #2563EB;
+}
+
+.cta-secondary {
+    background: var(--yellow);
+    color: var(--ink);
+}
+
+.cta-toy {
+    background: var(--violet);
+    color: var(--ink);
+}
+
+/* Developer Polaroid Frame with Cartoon Character & Full Stack Languages */
+.hero-profile-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-polaroid {
+    position: relative;
+    background: var(--white);
+    border-radius: 22px;
+    padding: 14px 14px 16px;
+    width: 100%;
+    max-width: 315px;
+    transform: rotate(1.2deg);
+    box-shadow: var(--shadow-lg);
+}
+
+.profile-polaroid:hover {
+    transform: rotate(0deg) translateY(-4px);
+}
+
+.polaroid-tape {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    background: var(--coral);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
+    border-radius: 8px;
+    padding: 2px 12px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
+    z-index: 4;
+}
+
+.portrait-sparkle {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    z-index: 4;
+    pointer-events: none;
+    filter: drop-shadow(2px 2px 0px var(--ink));
+    animation: floatSparkle 3.6s ease-in-out infinite;
+}
+
+.sparkle-tl {
+    top: 6px;
+    left: -10px;
+}
+
+.sparkle-br {
+    bottom: 106px;
+    right: -10px;
+    animation-delay: -1.8s;
+}
+
+.polaroid-img-box {
+    border: 2.5px solid var(--ink);
+    box-shadow: 3px 3px 0px var(--ink);
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background: #FBF3DE;
+    margin-bottom: 12px;
+}
+
+.polaroid-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+@keyframes floatSparkle {
+    0%, 100% {
+        transform: translateY(0px) rotate(-6deg) scale(1);
+    }
+    50% {
+        transform: translateY(-5px) rotate(8deg) scale(1.08);
+    }
+}
+
+.polaroid-caption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.polaroid-name {
+    font-size: 16.5px;
+    font-weight: 900;
+    color: var(--ink);
+}
+
+.role-badge-pill {
+    background: var(--yellow);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    box-shadow: 2px 2px 0px var(--ink);
+    border-radius: 999px;
+    padding: 2px 11px;
+    font-size: 12px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.polaroid-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.stack-chip {
+    background: var(--white);
+    border: 1.8px solid var(--ink);
+    box-shadow: 1.5px 1.5px 0px var(--ink);
+    border-radius: 8px;
+    padding: 3px 9px;
+    font-size: 11.5px;
+    font-weight: 800;
+    color: var(--ink);
+    transition: transform 0.18s var(--spring);
+}
+
+.stack-chip:hover {
+    transform: translateY(-2px);
+}
+
+.chip-coral {
+    background: #FFE4E6;
+}
+
+.chip-sky {
+    background: #E0F2FE;
+}
+
+.chip-yellow {
+    background: #FEF08A;
+}
+
+.chip-cyan {
+    background: #CFFAFE;
+}
+
+.chip-mint {
+    background: #D1FAE5;
+}
+
+.chip-violet {
+    background: #EDE9FE;
+}
+
+.chip-butter {
+    background: #FFEDD5;
+}
+
+/* ==========================================================================
+   3. Sticker Ticker Marquee
+   ========================================================================== */
+.sticker-marquee {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    padding: 10px 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: max-content;
+    animation: marqueeScroll 32s linear infinite;
+}
+
+html[dir="rtl"] .marquee-track {
+    animation-direction: reverse;
+}
+
+.sticker-marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.marquee-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 2px solid var(--ink);
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.pill-stat {
+    background: var(--yellow);
+}
+
+.pill-review {
+    background: #F3F4F6;
+}
+
+.badge-stars-svg {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    color: #D97706;
+}
+
+@keyframes marqueeScroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ==========================================================================
+   4. Main Content Wrapper & Filterable Pop-Sticker Projects Grid
+   ========================================================================== */
+main {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 36px 18px 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    position: relative;
+    z-index: 2;
+}
+
+.section-heading-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.section-sticker-tag {
+    display: inline-block;
+    background: var(--mint);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.section-sticker-tag.tag-yellow {
+    background: var(--yellow);
+}
+
+.lab-section-title {
+    font-size: clamp(24px, 3.3vw, 34px);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--ink);
+}
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.filter-pill {
+    background: var(--white);
+    color: var(--ink);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+}
+
+.filter-pill.is-active {
+    background: var(--ink);
+    color: var(--white);
+    box-shadow: 3px 3px 0px #F59E0B;
+}
+
+/* 2-Column Sticker Grid */
+.projects-sticker-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.sticker-project-card {
+    border-radius: 22px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    box-shadow: var(--shadow-md);
+}
+
+.sticker-project-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.sticker-project-card.is-hidden {
+    display: none;
+}
+
+.card-violet {
+    background: var(--violet);
+}
+
+.card-sky {
+    background: var(--sky);
+}
+
+.card-yellow {
+    background: var(--butter);
+}
+
+.card-rose {
+    background: var(--rose);
+}
+
+.card-mint {
+    background: var(--mint);
+}
+
+.card-peach {
+    background: var(--peach);
+}
+
+.card-top-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.card-emoji-sticker {
+    width: 42px;
+    height: 42px;
+    background: var(--white);
+    border: 2px solid var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.card-cat-badge {
+    background: var(--white);
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--ink);
+}
+
+/* Text + Miniature Phone Mockup Split */
+.card-body-split {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 118px;
+    gap: 16px;
+    align-items: center;
+}
+
+.card-text-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card-title {
+    font-size: clamp(18px, 2vw, 21px);
+    font-weight: 800;
+    line-height: 1.25;
+    color: var(--ink);
+}
+
+.card-desc {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 2px;
+}
+
+.card-tag-chip {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1.5px solid var(--ink);
+    border-radius: 8px;
+    padding: 2px 8px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+/* Miniature Comic Phone Device Frame */
+.card-device-col {
+    display: flex;
+    justify-content: center;
+}
+
+.mini-phone-frame {
+    position: relative;
+    width: 112px;
+    aspect-ratio: 9 / 16.5;
+    background: var(--ink);
+    border: 2.5px solid var(--ink);
+    border-radius: 18px;
+    padding: 5px;
+    box-shadow: 4px 4px 0 rgba(17, 24, 39, 0.9);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.25s var(--spring);
+}
+
+.mini-phone-frame:hover {
+    transform: rotate(-2deg) scale(1.05);
+}
+
+.mini-phone-notch {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 34px;
+    height: 6px;
+    background: var(--ink);
+    border-radius: 999px;
+    z-index: 3;
+}
+
+.mini-phone-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 12px;
+    background: var(--white);
+}
+
+.mini-phone-zoom {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    background: var(--yellow);
+    color: var(--ink);
+    border: 1.8px solid var(--ink);
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-size: 10.5px;
+    font-weight: 800;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 4;
+}
+
+.mini-phone-frame:hover .mini-phone-zoom {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Card Bottom Action Buttons */
+.card-actions-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-btn-inspect,
+.card-btn-live {
+    flex: 1;
+    border: 2px solid var(--ink);
+    box-shadow: 2.5px 2.5px 0 var(--ink);
+    border-radius: 12px;
+    padding: 9px 12px;
+    font-size: 13px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.18s var(--spring), box-shadow 0.18s ease;
+}
+
+.card-btn-inspect {
+    background: var(--white);
+    color: var(--ink);
+}
+
+.card-btn-live {
+    background: var(--ink);
+    color: var(--white);
+}
+
+.card-btn-inspect:hover,
+.card-btn-live:hover {
+    transform: translate(-1.5px, -1.5px);
+    box-shadow: 4px 4px 0 var(--ink);
+}
+
+/* ==========================================================================
+   5. Process Steps & Client Love Stickers
+   ========================================================================== */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.process-card {
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.process-sky {
+    background: var(--sky);
+}
+
+.process-yellow {
+    background: var(--yellow);
+}
+
+.process-mint {
+    background: var(--mint);
+}
+
+.step-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: var(--white);
+    border: 2px solid var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.step-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--ink);
+}
+
+.step-desc {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+}
+
+.reviews-sticker-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.review-sticker-card {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.rev-tilt-left {
+    transform: rotate(-1deg);
+}
+
+.rev-tilt-flat {
+    transform: rotate(0.5deg);
+}
+
+.rev-tilt-right {
+    transform: rotate(1deg);
+}
+
+.review-sticker-card:hover {
+    transform: rotate(0deg) translateY(-3px);
+}
+
+.review-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.review-verified {
+    background: var(--butter);
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    padding: 2px 9px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.review-quote {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.6;
+}
+
+.review-author {
+    font-size: 13px;
+    color: var(--ink-muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.review-author strong {
+    color: var(--ink);
+}
+
+/* ==========================================================================
+   6. Smart 1-Tap WhatsApp Brief Builder
+   ========================================================================== */
+.contact-lab-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: clamp(22px, 3.6vw, 36px);
+    box-shadow: var(--shadow-lg);
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(20px, 3.2vw, 36px);
+    align-items: center;
+}
+
+.contact-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ECFDF5;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.contact-mascot-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+}
+
+.mascot-sticker-btn {
+    width: 88px;
+    height: 88px;
+    flex-shrink: 0;
+    border-radius: 22px;
+    background: #FBF3DE;
+    padding: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    transform: rotate(-3deg);
+    box-shadow: 4px 4px 0 var(--ink);
+}
+
+.mascot-sticker-btn:hover {
+    transform: rotate(2deg) scale(1.06);
+}
+
+.mascot-sticker-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 17px;
+}
+
+.mascot-speech-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.mascot-speech-bubble {
+    background: var(--cyan);
+    color: var(--ink);
+    border-radius: 14px;
+    padding: 7px 13px;
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow: 3px 3px 0 var(--ink);
+    line-height: 1.4;
+}
+
+.contact-title {
+    font-size: clamp(24px, 3.2vw, 32px);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 10px;
+}
+
+.contact-desc {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+}
+
+.inquiry-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.inquiry-chip {
+    background: var(--bg-paper);
+    color: var(--ink);
+    border-radius: 12px;
+    padding: 8px 13px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+}
+
+.inquiry-chip.is-selected {
+    background: var(--yellow);
+    box-shadow: 4px 4px 0 var(--ink);
+}
+
+.contact-right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.brief-preview-label {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--ink);
+}
+
+.brief-textarea {
+    width: 100%;
+    border-radius: 14px;
+    padding: 12px 14px;
+    background: var(--bg-paper);
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+    resize: vertical;
+    min-height: 86px;
+    box-shadow: var(--shadow-sm);
+}
+
+.whatsapp-lab-btn {
+    background: var(--mint);
+    color: var(--ink);
+    border-radius: 16px;
+    padding: 13px 18px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.whatsapp-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--emerald);
+    border: 2px solid var(--ink);
+    color: var(--white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.whatsapp-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.whatsapp-label {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--ink-soft);
+}
+
+.whatsapp-number {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--ink);
+    direction: ltr;
+    unicode-bidi: embed;
+    text-align: start;
+}
+
+.whatsapp-arrow {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: var(--white);
+    border: 2px solid var(--ink);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   7. Footer & Inspection Modal
+   ========================================================================== */
+.lab-footer {
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 18px 34px;
+    position: relative;
+    z-index: 2;
+}
+
+.footer-inner {
+    background: var(--white);
+    border-radius: 18px;
+    padding: 16px 22px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.footer-brand {
+    font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.footer-note {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-muted);
+}
+
+.footer-links {
+    display: flex;
+    gap: 8px;
+}
+
+.footer-link-pill {
+    text-decoration: none;
+    background: var(--yellow);
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/* Modal Lightbox */
+.project-lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+}
+
+.project-lightbox-overlay.is-active {
+    display: flex;
+}
+
+.project-lightbox-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+.project-modal-card {
+    position: relative;
+    z-index: 2;
+    background: var(--bg-paper);
+    border-radius: 24px;
+    padding: clamp(18px, 3vw, 28px);
+    width: 100%;
+    max-width: 760px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 9px 9px 0px var(--ink);
+    animation: modalPopIn 0.28s var(--spring);
+}
+
+@keyframes modalPopIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) translateY(16px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.modal-top-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-emoji {
+    font-size: 26px;
+}
+
+.modal-badge {
+    background: var(--cyan);
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    padding: 4px 12px;
+    font-size: 12.5px;
+    font-weight: 800;
+}
+
+.modal-close-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+    background: var(--coral);
+    color: var(--ink);
+    font-size: 15px;
+    font-weight: 900;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.modal-body-grid {
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+    gap: 24px;
+    align-items: center;
+}
+
+.modal-phone-frame {
+    position: relative;
+    width: 220px;
+    margin: 0 auto;
+    aspect-ratio: 9 / 17.5;
+    background: var(--ink);
+    border-radius: 24px;
+    padding: 8px;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.modal-phone-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 16px;
+    background: var(--white);
+}
+
+.modal-info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.modal-title {
+    font-size: clamp(22px, 2.8vw, 28px);
+    font-weight: 900;
+    line-height: 1.25;
+}
+
+.modal-desc {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+}
+
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.modal-tags .card-tag-chip {
+    background: var(--yellow);
+    font-size: 12.5px;
+    padding: 4px 10px;
+}
+
+.modal-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.modal-btn-live,
+.modal-btn-similar {
+    text-decoration: none;
+    border-radius: 14px;
+    padding: 11px 18px;
+    font-size: 14px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.modal-btn-live {
+    background: var(--mint);
+    color: var(--ink);
+}
+
+.modal-btn-similar {
+    background: var(--yellow);
+    color: var(--ink);
+}
+
+/* ==========================================================================
+   8. Confetti Particles Layer
+   ========================================================================== */
+.confetti-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 200000;
+    overflow: hidden;
+}
+
+.confetti-piece {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border: 1.5px solid var(--ink);
+    border-radius: 3px;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+/* ==========================================================================
+   9. Responsive Breakpoints & Reduced Motion
+   ========================================================================== */
+@media (max-width: 920px) {
+
+    .hero-grid,
+    .contact-lab-card {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-profile-wrap {
+        order: -1;
+    }
+
+    .profile-polaroid {
+        max-width: 280px;
+    }
+
+    .projects-sticker-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-grid,
+    .reviews-sticker-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .card-body-split {
+        grid-template-columns: 1fr;
+    }
+
+    .card-device-col {
+        order: -1;
+        justify-content: flex-start;
+    }
+
+    .mini-phone-frame {
+        width: 130px;
+    }
+
+    .modal-body-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-phone-frame {
+        width: 185px;
+    }
+
+    .lab-navbar {
+        justify-content: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .marquee-track,
+    .intro-star,
+    .live-dot,
+    .paper-plane,
+    .portrait-sparkle {
+        animation: none !important;
+    }
+
+    .paper-planes-sky {
+        display: none;
+    }
+
+    * {
+        transition-duration: 0.05s !important;
+    }
+}
